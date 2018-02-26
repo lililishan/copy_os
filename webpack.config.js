@@ -354,14 +354,6 @@ module.exports = (function makeWebpackConfig() {
     port: port,
     // host:ip,
     proxy: {
-      //'/saiku/*': {
-      //  //target: 'http://192.168.0.180:8082/',
-      //  target: 'http://rmos.addnewer.com',
-      //  // target: 'http://123.57.221.132:8082/',
-      //  //target: 'http://saiku.addnewer.com/',
-      //  changeOrigin: true,
-      //  secure: false
-      //},
       '/rap/*': {
         target: 'http://192.168.0.30/mockjsdata/33/',
         pathRewrite: {
@@ -371,26 +363,7 @@ module.exports = (function makeWebpackConfig() {
         secure: false
       },
       '/api/*': {
-
-        // target: 'http://reachmaxos.sandbox.addnewer.com',
-
         target: 'http://front.dev.rmos.com/',
-
-         // target: 'http://front.dev.new.rmos.com',
-
-         //target: 'http://front.test.rmos.com/',
-
-        //target: 'http://front.test.rmos.com/',
-        //target:'http://reachmaxos.sandbox.addnewer.com/',
-
-        // target: 'https://reachmaxos.addnewer.com/',
-
-        // pathRewrite : function(path,req){
-        //   return path.replace(/^\/api/,'');
-        // },
-        // pathRewrite: {
-        //   '^/api': ''
-        // },
         changeOrigin: true,
         secure: false,
       },
