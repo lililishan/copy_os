@@ -1,0 +1,14 @@
+*/.Ds_store
+**/.Ds_store
+**/**/.Ds_store
+src/.Ds_store
+.Ds_store
+.idea
+node_modules/*
+reports/*
+npm-debug.log*
+stats.json
+/coverage
+/.vscode/
+.tmp
+.idea
