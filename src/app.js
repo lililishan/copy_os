@@ -6,9 +6,12 @@ import {
 
 import appTemp from "./app.jade"
 import "./index"
+import common from "./common"
+import menu from "./menu"
 import home from "./home"
+import subscription from "./subscription"
 
-angular.module("copyOs", ['dndLists', 'ngSanitize', 'ivh.treeview', 'ui.router', '720kb.tooltips', 'moment-picker', 'ngFileUpload', ngSweetAlert2, home])
+angular.module("copyOs", ['dndLists', 'ngSanitize', 'ivh.treeview', 'ui.router', '720kb.tooltips', 'moment-picker', 'ngFileUpload', ngSweetAlert2, common, menu, home, subscription])
   .config(($stateProvider, $urlRouterProvider) => {
     'ngInject'
     $stateProvider.state('app', {

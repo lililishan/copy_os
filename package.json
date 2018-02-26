@@ -22,7 +22,6 @@
     "angular-ui-bootstrap": "2.5.0",
     "animate.css": "^3.5.2",
     "d3": "4.9.1",
-    
     "echarts": "3.7.1",
     "jquery": "1.12.4",
     "lodash": "4.17.4",

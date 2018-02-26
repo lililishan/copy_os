@@ -1,0 +1,5 @@
+header#header
+  ul.nav
+    li(ng-repeat="con in vm.menuData" ui-sref="{{con.href}}")
+      a(ng-bind="con.href" )
+    
