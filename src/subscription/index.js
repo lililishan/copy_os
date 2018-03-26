@@ -10,11 +10,11 @@ export default angular.module('app.subscription', [])
       url: '/subscription',
       template: listTemp,
       controller: listCtrl
-      // component: 'alist'
+      // component: 'list'
     })
   })  
-  // .component('alist', {
-  //   template: '<div>kdnkabfdnjkbdfs </div>',
+  // .component('list', {
+  //   template: listTemp,
   //   controller: listCtrl
   // })
   .name

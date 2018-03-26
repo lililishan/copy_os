@@ -1,5 +1,7 @@
 export default class listCtrl {
-  constructor() {
-    console.log("skbds")
+  constructor($http) {
+    'ngInject'
+    Object.assign(this, {$http})
+    
   }
 }

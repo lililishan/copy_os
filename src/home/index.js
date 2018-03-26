@@ -6,7 +6,11 @@ export default angular.module('app.home', [])
       parent: 'app',
       url: '/app',
       template: homeTemp,
+      // component: 'home'
       
     })
   })
+  // .component('home', {
+  //   template: homeTemp,
+  // })
   .name

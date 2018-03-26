@@ -1,0 +1,232 @@
+//animation
+x-animation($value)
+  -webkit-animation $value
+  -moz-animation $value
+  -o-animation $value
+  animation $value
+//省略号
+x-ellipsis()
+  white-space nowrap
+  overflow hidden
+  -o-text-overflow ellipsis
+  -ms-text-overflow ellipsis
+  text-overflow ellipsis
+x-pre-wrap()
+  white-space pre-wrap      
+  white-space -moz-pre-wrap 
+  white-space -pre-wrap     
+  white-space -o-pre-wrap   
+  word-wrap break-word    
+//隐藏被旋转的 div 元素的背面
+x-backface-visibility($value=visible)
+  -webkit-backface-visibility $value
+  -moz-backface-visibility $value
+  -ms-backface-visibility $value
+  backface-visibility $value
+//边框弧度
+x-border-radius($radius)
+  -moz-border-radius $radius
+  -webkit-border-radius $radius
+  border-radius $radius
+//边框三角
+x-border-triangle($borderWidth, $borderColor, $direction)
+  $default-border-style = solid
+
+  width 0
+  height 0
+  overflow hidden
+  border-width $borderWidth
+  border-style $default-border-style
+  _border-style dashed
+  border-color transparent
+
+  if ($direction == top)
+    border-bottom-color $borderColor
+    _border-bottom-style $default-border-style
+
+
+  if ($direction == right)
+    border-left-color $borderColor
+    _border-left-style $default-border-style
+
+
+  if ($direction == bottom)
+    border-top-color $borderColor
+    _border-top-style $default-border-style
+
+
+  if ($direction == left)
+    border-right-color $borderColor
+    _border-right-style $default-border-style
+
+
+  if ($direction == topleft)
+    border-top-color $borderColor
+    border-left-color $borderColor
+    _border-top-style $default-border-style
+    _border-left-style $default-border-style
+
+
+  if ($direction == topright)
+    border-top-color $borderColor
+    border-right-color $borderColor
+    _border-top-style $default-border-style
+    _border-right-style $default-border-style
+
+
+  if ($direction == bottomleft)
+    border-bottom-color $borderColor
+    border-left-color $borderColor
+    _border-bottom-style $default-border-style
+    _border-left-style $default-border-style
+
+
+  if ($direction == bottomright)
+    border-bottom-color $borderColor
+    border-right-color $borderColor
+    _border-bottom-style $default-border-style
+    _border-right-style $default-border-style
+
+//盒子阴影
+x-box-shadow($params)
+  -moz-box-shadow $params
+  -webkit-box-shadow $params
+  box-shadow $params
+//盒子-规定两个并排的带边框的框
+x-box-sizing($model)
+  -webkit-box-sizing $model
+  -moz-box-sizing $model
+  box-sizing $model
+//清除浮动
+x-clearfix()
+  &::before,
+  &::after
+    content " "
+    display table
+
+  &::after
+    clear both
+*zoom 1
+//图片变灰
+x-grayscale()
+  /* for Chrome, Safari, Opera */
+  -webkit-filter grayscale(100%)
+  /* CSS3 standard usage */
+  filter grayscale(100%)
+  /* for FF, data-uri generate from gray.svg */
+  filter url('dataimage/svg+xmlbase64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgICA8ZmlsdGVyIGlkPSJncmF5c2NhbGUiPgogICAgICAgIDxmZUNvbG9yTWF0cml4IHR5cGU9Im1hdHJpeCIgdmFsdWVzPSIwLjMzMzMgMC4zMzMzIDAuMzMzMyAwIDAgMC4zMzMzIDAuMzMzMyAwLjMzMzMgMCAwIDAuMzMzMyAwLjMzMzMgMC4zMzMzIDAgMCAwIDAgMCAxIDAiLz4KICAgIDwvZmlsdGVyPgo8L3N2Zz4=#grayscale')
+  /* for IE6~9, disable stylus convert gray to #808080 by stylus's unquote method */
+  filter unquote("gray")
+//行内块
+x-inline-block()
+  display inline-block
+*display inline
+*zoom 1
+//线性渐变
+x-linear-gradient($direction, $startColor, $endColor)
+  $xdirection=null
+  $ie-direction=null
+
+  if (join(",", $direction) == "to,bottom")
+    $xdirection=top
+    $ie-direction=0
+
+  if (join(",", $direction) == "to,right")
+    $xdirection=left
+    $ie-direction=1
+
+
+    background -webkit-linear-gradient($xdirection, $startColor, $endColor)
+    background -moz-linear-gradient($xdirection, $startColor, $endColor)
+    background -ms-linear-gradient($xdirection, $startColor, $endColor)
+    background -o-linear-gradient($xdirection, $startColor, $endColor)
+    background linear-gradient($direction, $startColor, $endColor)
+    filter unquote("progidDXImageTransform.Microsoft.gradient(startcolorstr=" + $startColor + ",endcolorstr=" + $endColor + ",gradientType=" + $ie-direction + ")")
+//透明度
+x-opacity($opacity)
+  $opacityIE = $opacity * 100
+  -ms-filter unquote('progid=DXImageTransform.Microsoft.Alpha(Opacity=' + $opacityIE + ')') // IE 8 & 9
+  filter unquote('alpha(opacity=' + $opacityIE + ')') // IE 6 & 7
+  opacity $opacity
+//设置 3D 元素的基点位置
+x-perspective-origin($origin=50% 50%)
+  -webkit-perspective-origin $origin
+  -moz-perspective-origin $origin
+  perspective-origin $origin
+//设置元素被查看位置的视图
+x-perspective($value=none)
+  -webkit-perspective $value
+  -moz-perspective $value
+  perspective $value
+//占位符
+x-placeholder($color)
+  &-moz-placeholder
+    color $color
+    opacity 1
+
+  &-moz-placeholder
+    color $color
+
+  &-ms-input-placeholder
+    color $color
+
+  &-webkit-input-placeholder
+    color $color
+
+//径向渐变
+x-radial-gradient()
+  $param = unquote(join(',', arguments))
+  background -webkit-radial-gradient($param)
+  background -moz-radial-gradient($param)
+  background -ms-radial-gradient($param)
+  background radial-gradient($param)
+//文字溢出隐藏
+x-text-overflow($cutway=clip)
+  overflow hidden
+  text-overflow $cutway
+  white-space nowrap
+//设置旋转元素的基点位置
+x-transform-origin($value=50% 50% 0)
+  -webkit-transform-origin $value
+  -moz-transform-origin $value
+  -ms-transform-origin $value
+  transform-origin $value
+//使被转换的子元素保留其 3D 转换
+x-transform-style($value=flat)
+  -webkit-transform-style $value
+  -moz-transform-style $value
+  transform-style $value
+//使被转换的子元素保留其 3D 转换
+x-transform($value)
+  -webkit-transform $value
+  -moz-transform $value
+  -ms-transform $value
+  -o-transform $value
+  transform $value
+//transition动画
+x-transition($value)
+  -webkit-transition $value
+  -moz-transition $value
+  -o-transition $value
+  transition $value
+//none：
+//文本不能被选择
+//text：
+//可以选择文本
+//all：
+//当所有内容作为一个整体时可以被选择。如果双击或者在上下文上点击子元素，那么被选择的部分将是以该子元素向上回溯的最高祖先元素。
+//element：
+//可以选择文本，但选择范围受元素边界的约束
+x-user-select($mode=text)
+  -webkit-user-select $mode
+  -moz-user-select $mode
+  -ms-user-select $mode
+  user-select $mode
+
+/*倒三角形*/
+triangle-bottom($top=6px, $right=6px, $bottom=0, $left=6px, $color=#000, $bg-color=#FFF)
+  width 0
+  height 0
+  border max($top,$right,$bottom,$left) solid $color
+  border-color $color $bg-color
+  border-width $top $right $bottom $left
